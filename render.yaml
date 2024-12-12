@@ -1,7 +1,7 @@
 services:
   # A Docker web service
   - type: web
-    name: trellis-snapchat
+    name: trellis-Instagram
     runtime: python
     plan: free
     autoDeploy: false
