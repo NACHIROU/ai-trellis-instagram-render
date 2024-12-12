@@ -1,0 +1,17 @@
+trellis:
+  - uid: "trellis:instagram"
+    name: "Instagram"
+    headline: "80 characters string explaining what the trellis does"
+    categories: ["Product reviews"]
+    developer_name: "Joe"
+    developer_website: "https://myapp.me/"
+    help_url: "https://help.trybeans.com/integrations/app"
+    overview: "255 characters giving introducing the trellis"
+    features: "240 words to explains all the features of the integration"
+    callback_url: "callback url used for oauth"
+    edit_url: "The merchant is directed here if there are already using the app"
+    uninstall_hook: "A hook to call to uninstall the app"
+    svg: "SVG icon"
+    screenshot1: "screenshot"
+    screenshot2: "screenshot"
+    screenshot3: "screenshot"

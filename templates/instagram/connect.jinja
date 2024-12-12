@@ -1,0 +1,26 @@
+{% extends "base.jinja" %}
+
+{% block title %}Instagram integration · Connect{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <section class="page-header">
+    <div class="title-wrapper">
+      <h2>Connect</h2>
+    </div>
+  </section>
+
+  <article class="card-action">
+    <div class="icon">
+      <img src="{{ url_for('static', path='instagram/logo.svg') }}" alt="instagram icon" title="instagram" />
+    </div>
+    <div class="content">
+      <h3>Connect your instagram account</h3>
+      <p class="content">Auhtorize this integration to access your instagram data.</p>
+    </div>
+    <div class="action">
+      <a class="button primary" href={{redirect_url}} title="connect">Connect</a>
+    </div>
+  </article>
+</main>
+{% endblock %}

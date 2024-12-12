@@ -1,0 +1,28 @@
+{% extends "base.jinja" %}
+
+{% block title %}Instagram integration . Rules{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <section class="page-header">
+    <nav class="breadcrumbs">
+      <a href="{{ url_for('instagram:connect') }}" title="back">
+        <span>Instagram integration</span>
+      </a>
+    </nav>
+    <div class="title-wrapper">
+      <h2>Points rules</h2>
+    </div>
+  </section>
+
+  <article class="card-action">
+    <div class="content">
+      <h4>Points for instagram follow</h4>
+      <p>Reward customers with points when they follow you on instagram.</p>
+    </div>
+    <div class="action">
+      <button class="button primary success" role="button">Activate</button>
+    </div>
+  </article>
+</main>
+{% endblock %}

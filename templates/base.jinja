@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="roaster-coffee-html">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}Trellis{% endblock %}</title>
+  <link rel="stylesheet" href="{{ AppSettings.THEME_COFFEE_CDN }}/assets/css/index.css" />
+  <link rel="stylesheet" href="{{ AppSettings.THEME_COFFEE_CDN }}/assets/fontawesome/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/x-icon" href="https://trybeans.s3.amazonaws.com/static-v3/favicons/trellis/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+  <script src="{{ AppSettings.THEME_COFFEE_CDN }}/assets/scripts/style.js" defer async></script>
+</head>
+
+<body class="roaster-coffee">
+  <div class="roaster-layout">
+    <!-- Main Frame: Contains the main sections of the page -->
+    <div class="mainframe">
+      {% block main %}
+      <main class="medium">
+      </main>
+      {% endblock %}
+
+      <section class="toasts">
+        {% for message in get_flashed_messages(request) %}
+        <article class="toast {{ message.level }}">
+          <p>{{ message.message }}</p>
+          <button class="button-icon close"><i class="fa-regular fa-xmark"></i></button>
+        </article>
+        {% endfor %}
+      </section>
+
+      <footer>
+        {% if merchant %}
+        <div class="store-profile">
+          <span>{{ merchant.beans_card_address }}</span>
+        </div>
+        {% endif %}
+      </footer>
+    </div>
+    <!-- End: Main Frame -->
+  </div>
+</body>
+
+</html>

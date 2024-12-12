@@ -1,0 +1,13 @@
+{% extends "base.jinja" %}
+
+{% block title %}Index{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <nav class="settings">
+    <ol>
+      <li><a href="{{ url_for('instagram:home') }}">Instagram</a></li>
+    </ol>
+  </nav>
+</main>
+{% endblock %}

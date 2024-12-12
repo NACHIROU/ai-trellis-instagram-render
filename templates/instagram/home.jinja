@@ -1,0 +1,54 @@
+{% extends "base.jinja" %}
+
+{% block title %}Instagram integration{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <section class="page-header">
+    <div class="title-wrapper">
+      <h2>Instagram integration</h2>
+    </div>
+  </section>
+  <article class="card-action">
+    <div class="icon">
+      <img src="{{ url_for('static', path='instagram/logo.svg') }}" alt="Instagram icon" title="Instagram"/>
+    </div>
+    <div class="content">
+      <h4>{{merchant.instagram_username}}</h4>
+      <p>Your Instagram account is connected.</p>
+    </div>
+    <div class="action">
+      <a class="button secondary" href="#" title="View Instagram account">View Instagram account</a>
+    </div>
+  </article>
+  <nav class="settings">
+    <h3>Integration settings</h3>
+    <ol>
+      <li>
+        <a href="{{ url_for('instagram:rules') }}" title="Points rules">
+          <div>
+            <h4>Points rules</h4>
+            <p>Reward customers with points for specific actions.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('instagram:logs') }}" title="logs">
+          <div>
+            <h4>Rewards log</h4>
+            <p>Inspect instagram rewards logs.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('instagram:status') }}" title="status">
+          <div>
+            <h4>Status</h4>
+            <p>Manage integration connection status.</p>
+          </div>
+        </a>
+      </li>
+    </ol>
+  </nav>
+</main>
+{% endblock %}

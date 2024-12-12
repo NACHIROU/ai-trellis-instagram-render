@@ -1,0 +1,42 @@
+# Github Action Workflow
+# ----------------------
+# This file helps automate actions that will be automatically
+# performed by Github before the code is merged to production.
+# The code will be automatically linted and testing and ensure that the
+# quality meets the expectation and that silly bugs can be easily catch.
+# Of course this does not remove the need to always manual test the application.
+
+
+name: Linting & Testing
+
+on:
+  push:
+    branches:
+      - staging
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        python-version: [3.9, ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Run Linters
+        run: |
+          black --check .
+          isort --check .
+          mypy .
+          pylint trellis tests AppMain
+      - name: Run Tests
+        run: |
+          pytest

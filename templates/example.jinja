@@ -1,0 +1,27 @@
+{% extends "base.jinja" %}
+
+{% block title %}Trellis Example{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <h1>Trellis Example</h1>
+
+  <section>
+    <h2>Create a review</h2>
+    <form name="create-review" method="post">
+      <input type="text" name="reviewer_name" value="{{ form.reviewer_name }}" placeholder="John Doe"/>
+      <input type="email" name="reviewer_email" value="{{ form.reviewer_email }}" placeholder="name@example.com"/>
+      <input type="submit">
+    </form>
+  </section>
+
+  <section>
+    <h2>Here are the list of reviews</h2>
+    <ul>
+      {% for review in reviews %}
+      <li><b>{{ review.reviewer_name }}:</b> {{ review.reviewer_email }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+{% endblock %}

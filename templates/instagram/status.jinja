@@ -1,0 +1,42 @@
+{% extends "base.jinja" %}
+
+{% block title %}Instagram integration . Status{% endblock %}
+
+{% block main %}
+<main class="medium">
+  <section class="page-header">
+    <nav class="breadcrumbs">
+      <a href="{{ url_for('instagram:connect') }}" title="back">
+        <span>Instagram integration</span>
+      </a>
+    </nav>
+    <div class="title-wrapper">
+      <h2>Status</h2>
+    </div>
+  </section>
+  <article class="card-action">
+    <div class="icon">
+      <i class="fa-solid fa-link-slash"></i>
+    </div>
+    <div class="content">
+      <h4>Disconnect</h4>
+      <p>Reset the connection between Beans and Instagram </p>
+    </div>
+    <div class="action">
+      <button class="button secondary danger">Disconnect</button>
+    </div>
+  </article>
+  <article class="card-action">
+    <div class="icon">
+      <i class="fa-regular fa-trash-can"></i>
+    </div>
+    <div class="content">
+      <h4>Delete</h4>
+      <p>Delete this integration and all data.</p>
+    </div>
+    <div class="action">
+      <button class="button secondary secondary">Delete</button>
+    </div>
+  </article>
+</main>
+{% endblock %}
