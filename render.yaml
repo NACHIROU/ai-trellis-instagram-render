@@ -1,0 +1,46 @@
+services:
+  # A Docker web service
+  - type: web
+    name: trellis-snapchat
+    runtime: python
+    plan: free
+    autoDeploy: false
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn AppMain.asgi:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.2"
+      - key: APP_ENV
+        value: "DEV"
+      - key: APP_SETTINGS_LOG_DIR
+        value: "/tmp/"
+      - key: APP_SETTINGS_CRYPTO_SECRET
+        value: "xxx-xxxxxxxxx-xxxxxx"
+      - key: APP_SETTINGS_THEME_COFFEE_CDN
+        value: "https://theme-coffee-staging.vercel.app"
+      - key: APP_SETTINGS_MONGO__PROTOCOL
+        value: "mongodb+srv"
+      - key: APP_SETTINGS_MONGO__HOST
+        value: ""
+      - key: APP_SETTINGS_MONGO__DB
+        value: ""
+      - key: APP_SETTINGS_MONGO__USERNAME
+        value: ""
+      - key: APP_SETTINGS_MONGO__PASSWORD
+        value: ""
+      - key: APP_SETTINGS_MONGO__PARAMS
+        value: ""
+      - key: APP_SETTINGS_SNAPCHAT__BEANS_PUBLIC
+        value: ""
+      - key: APP_SETTINGS_SNAPCHAT__BEANS_SECRET
+        value: ""
+      - key: APP_SETTINGS_SNAPCHAT__THIRD_PARTY_PUBLIC
+        value: "PUBLIC_KEY"
+      - key: APP_SETTINGS_SNAPCHAT__THIRD_PARTY_SECRET
+        value: "SECRET_KEY"
+      - key: APP_SETTINGS_SNAPCHAT__TRELLIS_DOMAIN
+        value: "http://localhost:8000"
+      - key: APP_SETTINGS_TESTCASES__BEANS_CARD_ID
+        value: ""
+      - key: APP_SETTINGS_TESTCASES__BEANS_ACCESS_TOKEN
+        value: ""
